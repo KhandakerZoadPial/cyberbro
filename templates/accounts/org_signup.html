@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+Cyberbro|Organization Sign Up
+{% endblock title %}
+
+
+{% block main_content %}
+<br><br>
+<h1 class="text-center">Organization Sign Up</h1>
+<div class="container">
+    <hr>
+    <form action="{% url 'org_signup' %}" method="post">
+        {% csrf_token %}
+        <label>Username:</label>
+        <input type="text" name="username" class="form-control" id="" required>
+        <br>
+        <label>Organization Name:</label>
+        <input type="text" name="name" class="form-control" id="" required>
+        <br>
+        <label>Organization Email:</label>
+        <input type="email" name="email" class="form-control" id="" required>
+        <br>
+        <label>Service Needed:</label>
+        <input type="text" name="service_needed" class="form-control" id="" required>
+        <br>
+        <label>Choose Password:</label>
+        <input type="text" name="password" class="form-control" id="" required>
+        <br>
+        <button class="btn btn-outline-warning" type="submit">Sign Up</button>
+    </form>
+</div>
+{% endblock main_content %}

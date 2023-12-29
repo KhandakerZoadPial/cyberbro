@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+Cyberbro|Volunteer Sign Up
+{% endblock title %}
+
+
+{% block main_content %}
+<br><br>
+<h1 class="text-center">Volunteer Sign Up</h1>
+<div class="container">
+    <hr>
+    {% if messages %}
+    {% for msg in messages %}
+    <div class="alert alert-secondary" role="alert">
+       {{msg}}
+      </div>
+    {% endfor %}
+    {% endif %}
+    <form action="{% url 'vol_signup' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label>Username:</label>
+        <input type="text" name="username" class="form-control" id="" required>
+        <br>
+        <label>Name:</label>
+        <input type="text" name="name" class="form-control" id="" required>
+        <br>
+        <label>Email:</label>
+        <input type="email" name="email" class="form-control" id="" required>
+        <br>
+        <label>Number:</label>
+        <input type="text" name="number" class="form-control" id="" required>
+        <br>
+        <label>Resume:</label>
+        <input type="file" name="resume" class="form-control" id="" required>
+        <br>
+        <label>Choose Password:</label>
+        <input type="text" name="password" class="form-control" id="" required>
+        <br>
+        <button class="btn btn-outline-warning" type="submit">Sign Up</button>
+    </form>
+</div>
+{% endblock main_content %}

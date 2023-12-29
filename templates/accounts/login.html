@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+Cyberbro|
+{% endblock title %}
+
+
+{% block main_content %}
+<br><br>
+<h1 class="text-center">Login</h1>
+<div class="container">
+    <hr>
+    {% if messages %}
+    {% for msg in messages %}
+    <div class="alert alert-secondary" role="alert">
+       {{msg}}
+      </div>
+    {% endfor %}
+    {% endif %}
+    <form action="{% url 'login' %}" method="post">
+        {% csrf_token %}
+        <label>Username:</label>
+        <input type="text" name="username" class="form-control" id="" required>
+        <br>
+        <label>Password:</label>
+        <input type="text" name="password" class="form-control" id="" required>
+        <br>
+        <button class="btn btn-outline-warning" type="submit">Login</button>
+    </form>
+</div>
+{% endblock main_content %}
