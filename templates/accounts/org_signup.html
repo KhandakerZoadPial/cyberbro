@@ -11,6 +11,13 @@ Cyberbro|Organization Sign Up
 <h1 class="text-center">Organization Sign Up</h1>
 <div class="container">
     <hr>
+    {% if messages %}
+    {% for msg in messages %}
+    <div class="alert alert-secondary" role="alert">
+       {{msg}}
+      </div>
+    {% endfor %}
+    {% endif %}
     <form action="{% url 'org_signup' %}" method="post">
         {% csrf_token %}
         <label>Username:</label>

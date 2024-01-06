@@ -33,8 +33,11 @@
               <div class="collapse navbar-collapse border-top border-lg-0 mt-4 mt-lg-0" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto">
                   <li class="nav-item"><a class="nav-link" aria-current="page" href="/">Home</a></li>
+                  <li class="nav-item"><a class="nav-link" aria-current="page" href="{% url 'all_org' %}">Organizations</a></li>
+                  <li class="nav-item"><a class="nav-link" aria-current="page" href="{% url 'all_vol' %}">Volunteers</a></li>
                   <li class="nav-item"><a class="nav-link" aria-current="page" href="{% url 'about' %}">About </a></li>
                   <li class="nav-item"><a class="nav-link" aria-current="page" href="{% url 'research' %}">Research </a></li>
+                  <li class="nav-item"><a class="nav-link" aria-current="page" href="{% url 'profile' %}">My Profile </a></li>
                 </ul>
                 {% if user.is_authenticated %}
                 <div class="d-flex ms-lg-4"><a class="btn btn-warning" href="{% url 'user_logout' %}">Logout</a></div>

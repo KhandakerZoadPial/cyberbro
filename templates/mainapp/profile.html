@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+CyberBro|Profile
+{% endblock title %}
+
+
+{% block main_content %}
+<style>
+
+    .user-profile {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .profile-picture {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+</style>
+<div class="container user-profile">
+  
+    <div class="card ">
+        <div class="card-body">
+            <div class="text-center">
+                <img src="https://th.bing.com/th/id/R.e3c230f8b39f61607f02c8ff3771773f?rik=u0ah1EK%2fkfCRFQ&pid=ImgRaw&r=0" alt="Profile Picture" class="profile-picture">
+                
+                {% if profile.organization_name %}
+                <h2 class="mt-3">{{profile.organization_name}}</h2>
+                {% else %}
+                <h2 class="mt-3">{{profile.name}}</h2>
+                {% endif %}
+               
+
+
+            </div>
+            <hr>
+            <h5 class="text-center">
+                <div class="alert alert-danger" role="alert">
+                    {{user_type}}
+                  </div>
+            </h5>
+          
+            <hr>
+            <div class="text-center">
+
+                <h4>Contact Information</h4>
+                <p><strong>Email:</strong> {{profile.email}}</p>
+                {% if profile.number %}
+                <p><strong>Phone:</strong> {{profile.number}}</p>
+                {% endif %}
+                {% if profile.resume %}
+                <p><strong>Resume:</strong> <a href="{{profile.resume.url}}">Download</a></p>
+                {% else %}
+                <p><strong>Service Needed:</strong> {{profile.service_needed}}</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock main_content %}
